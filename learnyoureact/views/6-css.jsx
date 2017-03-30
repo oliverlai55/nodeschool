@@ -5,7 +5,7 @@ export default class TodoBox extends React.Component {
       return (
           <div className="todoBox">
               <h1>Todos</h1>
-              <TodoList data={this.props.data} />
+              <TodoList />
               <TodoForm />
           </div>
       );
@@ -13,18 +13,7 @@ export default class TodoBox extends React.Component {
 }
 
 class TodoList extends React.Component {
-  constructor(props) {
-    super(props);
-  }
-
     render() {
-      let todo = this.props.data.map(obj => {
-        return (
-          <div key={obj.title}>
-            {obj.detail}
-          </div>
-        )
-      })
         return (
             <div className="todoList">
                 <table style={{border: "2px solid black"}}>
@@ -59,12 +48,8 @@ class Todo extends React.Component {
           <td style={style.tableContent}>
             <input type="checkbox" checked={this.state.checked} onChange={this.handleChange.bind(this)}/>
           </td>
-          <td style={style.tableContent}>
-            {this.props.title}
-          </td>
-          <td style={style.tableContent}>
-            {this.props.children}
-          </td>
+          <td style={style.tableContent}>{this.props.title}</td>
+          <td style={style.tableContent}>{this.props.children}</td>
         </tr>
       )
   }
