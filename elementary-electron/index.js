@@ -1,6 +1,6 @@
 var picture = require('cat-picture');
 var image = require('lightning-image-poly');
-var remote = require('electon').remote;
+var remote = require('electron').remote;
 var fs = require('fs');
 
 var src = picture.src;
@@ -19,6 +19,6 @@ function save() {
 	});
 }
 
-window.addEventListner('keydown', function(e) {
+window.addEventListener('keydown', function(e) {
 	if (e.keyCode == 80) save();
 });
